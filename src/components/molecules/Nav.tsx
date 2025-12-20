@@ -6,14 +6,15 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full border-b border-white/10">
+    <nav
+      className={`w-full border-b border-white/10 ${open && "bg-gray-600/80"}`}>
       <div className="h-20 flex justify-between items-center px-4 lg:px-8">
         <div className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap">
           <p>Breackers Plaza</p>
           <p className="text-teal-300">Condominiums</p>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden md:block ">
           <UlNav className="flex items-center gap-6">
             <LiNav text="Home" link="/" />
             <LiNav text="Us" link="/us" />
@@ -50,8 +51,8 @@ export default function Nav() {
         </button>
       </div>
 
-      <div className={`${open ? "fixed" : "hidden"} md:hidden z-5 w-3/4`}>
-        <UlNav className="flex flex-col gap-3 bg-black/80 rounded-xl p-4 w-full ">
+      <div className={`${open ? "fixed " : "hidden"} md:hidden z-5 w-3/4`}>
+        <UlNav className="flex flex-col gap-3 bg-gray-600/80 p-4 w-full ">
           <LiNav text="Home" link="/" />
           <LiNav text="Us" link="/us" />
           <LiNav text="Gallery" link="/gallery" />

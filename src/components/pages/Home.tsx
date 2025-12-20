@@ -1,13 +1,11 @@
-import Container from "../atoms/Container";
-import Header from "../molecules/Header";
-import Nav from "../molecules/Nav";
-import fondo from "/static/image.jpg";
+import AboutUs from "../organism/AboutUs";
+import Header from "../organism/Header";
 
 export default function Home() {
   return (
-    <Container background={fondo}>
-      <Nav />
+    <div className="flex flex-col gap-20">
       <Header />
-    </Container>
+      <AboutUs />
+    </div>
   );
 }

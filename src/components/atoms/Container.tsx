@@ -8,7 +8,7 @@ interface Props {
 export default function Container({ children, background }: Props) {
   return (
     <section
-      className="min-h-9/10 w-screen"
+      className="min-h-9/10 "
       style={
         background
           ? {
@@ -16,6 +16,7 @@ export default function Container({ children, background }: Props) {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
+              maxWidth: "",
             }
           : {}
       }>

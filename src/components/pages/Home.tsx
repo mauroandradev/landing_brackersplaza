@@ -1,5 +1,6 @@
 import Nav from "../molecules/Nav";
 import AboutUs from "../organism/AboutUs";
+import Amenities from "../organism/Amenities";
 import Header from "../organism/Header";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Nav />
       <Header />
       <AboutUs />
+      <Amenities />
     </div>
   );
 }

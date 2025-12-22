@@ -6,10 +6,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav
-      className={`w-full fixed border-b border-white/10 ${
-        open && "bg-gray-600/80"
-      }`}>
+    <nav className={`w-full fixed border-b border-white/10 bg-gray-600/60`}>
       <div className="w-3/4 h-20 flex justify-between items-center px-4 lg:px-8 m-auto">
         <div className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap">
           <p>Breackers Plaza</p>
@@ -54,7 +51,7 @@ export default function Nav() {
       </div>
 
       <div className={`${open ? "fixed " : "hidden"} md:hidden z-5 w-full`}>
-        <UlNav className="flex flex-col gap-3 bg-gray-600/80 p-4 w-full ">
+        <UlNav className="flex flex-col gap-3 bg-gray-600/60 p-4 w-full ">
           <LiNav text="Home" link="/" />
           <LiNav text="Us" link="/us" />
           <LiNav text="Gallery" link="/gallery" />

@@ -12,7 +12,7 @@ import {
 export default function AboutUs() {
   return (
     <Container>
-      <div className="flex flex-col lg:flex-row gap-10 items-center p-10">
+      <div className="flex flex-col lg:flex-row gap-10 items-center p-10 mt-auto">
         <div className="w-full lg:w-1/2 flex flex-col gap-10">
           <TitleSection text="About Us" />
 
@@ -23,9 +23,9 @@ Located near the island’s best dining, shopping, and recreational spots, Break
           />
 
           <div className="flex flex-row gap-4 sm:gap-15 justify-center">
-            <DivIconsAbout icon={faUserShield} text="24/7 SECURITY" />
-            <DivIconsAbout icon={faLocationDot} text="PRIME LOCATION" />
-            <DivIconsAbout icon={faPeopleRoof} text="COMMUNITY" />
+            <DivIconsAbout icon={faUserShield} title="24/7 SECURITY" />
+            <DivIconsAbout icon={faLocationDot} title="PRIME LOCATION" />
+            <DivIconsAbout icon={faPeopleRoof} title="COMMUNITY" />
           </div>
         </div>
 

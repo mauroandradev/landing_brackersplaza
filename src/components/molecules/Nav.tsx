@@ -6,7 +6,8 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className={`w-full fixed border-b border-white/10 bg-gray-600/60`}>
+    <nav
+      className={`w-full fixed border-b border-white/10 bg-gray-600/60 z-10`}>
       <div className="w-3/4 h-20 flex justify-between items-center px-4 lg:px-8 m-auto">
         <div className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap">
           <p>Breackers Plaza</p>

@@ -7,15 +7,17 @@ export default function Nav() {
 
   return (
     <nav
-      className={`w-full border-b border-white/10 ${open && "bg-gray-600/80"}`}>
-      <div className="h-20 flex justify-between items-center px-4 lg:px-8">
+      className={`w-full fixed border-b border-white/10 ${
+        open && "bg-gray-600/80"
+      }`}>
+      <div className="w-3/4 h-20 flex justify-between items-center px-4 lg:px-8 m-auto">
         <div className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap">
           <p>Breackers Plaza</p>
           <p className="text-teal-300">Condominiums</p>
         </div>
 
         <div className="hidden md:block ">
-          <UlNav className="flex items-center gap-6">
+          <UlNav className="flex items-center gap-10">
             <LiNav text="Home" link="/" />
             <LiNav text="Us" link="/us" />
             <LiNav text="Gallery" link="/gallery" />
@@ -51,7 +53,7 @@ export default function Nav() {
         </button>
       </div>
 
-      <div className={`${open ? "fixed " : "hidden"} md:hidden z-5 w-3/4`}>
+      <div className={`${open ? "fixed " : "hidden"} md:hidden z-5 w-full`}>
         <UlNav className="flex flex-col gap-3 bg-gray-600/80 p-4 w-full ">
           <LiNav text="Home" link="/" />
           <LiNav text="Us" link="/us" />

@@ -3,5 +3,5 @@ interface Props {
 }
 
 export default function PSection({ text }: Props) {
-  return <p className="text-gray-600">{text}</p>;
+  return <p className="text-gray-600 text-base/8 ">{text}</p>;
 }

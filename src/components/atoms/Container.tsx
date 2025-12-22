@@ -8,7 +8,7 @@ interface Props {
 export default function Container({ children, background }: Props) {
   return (
     <section
-      className="min-h-9/10 "
+      className="min-h-[80vh]"
       style={
         background
           ? {
@@ -20,7 +20,7 @@ export default function Container({ children, background }: Props) {
             }
           : {}
       }>
-      <div className="w-3/4 flex flex-col m-auto ">{children}</div>
+      <div className="w-3/4 flex flex-col m-auto">{children}</div>
     </section>
   );
 }

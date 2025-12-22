@@ -12,8 +12,8 @@ import {
 export default function AboutUs() {
   return (
     <Container>
-      <div className="flex flex-col lg:flex-row gap-10 items-center">
-        <div className="w-full lg:w-1/2 flex flex-col gap-5">
+      <div className="flex flex-col lg:flex-row gap-10 items-center p-10">
+        <div className="w-full lg:w-1/2 flex flex-col gap-10">
           <TitleSection text="About Us" />
 
           <PSection
@@ -22,7 +22,7 @@ export default function AboutUs() {
 Located near the island’s best dining, shopping, and recreational spots, Breakers Plaza allows residents to enjoy the best of coastal living. Whether you're here for a seasonal getaway or a permanent home, we provide the ideal space to live, relax, and enjoy island life.`}
           />
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center">
+          <div className="flex flex-row gap-4 sm:gap-15 justify-center">
             <DivIconsAbout icon={faUserShield} text="24/7 SECURITY" />
             <DivIconsAbout icon={faLocationDot} text="PRIME LOCATION" />
             <DivIconsAbout icon={faPeopleRoof} text="COMMUNITY" />
@@ -33,7 +33,7 @@ Located near the island’s best dining, shopping, and recreational spots, Break
           <img
             src={imgAbout}
             alt="Breakers Plaza Condominiums"
-            className="w-full h-[260px] sm:h-[360px] lg:h-[480px] object-cover rounded-xl"
+            className="w-full h-[260px] sm:h-[360px] lg:h-[480px] object-cover rounded-md"
           />
         </div>
       </div>

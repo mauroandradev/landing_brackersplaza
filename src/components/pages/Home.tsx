@@ -3,6 +3,7 @@ import AboutUs from "../organism/AboutUs";
 import Amenities from "../organism/Amenities";
 import Gallery from "../organism/Gallery";
 import Header from "../organism/Header";
+import Location from "../organism/Location";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <AboutUs />
       <Amenities />
       <Gallery />
+      <Location />
     </div>
   );
 }

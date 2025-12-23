@@ -7,9 +7,9 @@ type GalleryImage = {
 
 type Props = {
   images: GalleryImage[];
-  pageSize?: number; // para mosaico en PC
-  autoMsDesktop?: number; // auto-advance PC
-  autoMsMobile?: number; // auto-advance móvil
+  pageSize?: number;
+  autoMsDesktop?: number;
+  autoMsMobile?: number;
 };
 
 export default function GalleryMosaic({
@@ -18,18 +18,16 @@ export default function GalleryMosaic({
   autoMsDesktop = 9000,
   autoMsMobile = 9000,
 }: Props) {
-  // ----- responsive: <md = mobile, md+ = desktop -----
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)"); // Tailwind md = 768
+    const mq = window.matchMedia("(max-width: 767px)");
     const onChange = () => setIsMobile(mq.matches);
     onChange();
     mq.addEventListener?.("change", onChange);
     return () => mq.removeEventListener?.("change", onChange);
   }, []);
 
-  // ----- DESKTOP (mosaico por páginas) -----
   const [page, setPage] = useState(0);
   const totalPages = Math.max(1, Math.ceil(images.length / pageSize));
 
@@ -47,7 +45,6 @@ export default function GalleryMosaic({
   const goNextPage = () => setPage((p) => (p + 1) % totalPages);
   const goPrevPage = () => setPage((p) => (p - 1 + totalPages) % totalPages);
 
-  // Auto-advance Desktop
   useEffect(() => {
     if (isMobile) return;
     if (totalPages <= 1) return;
@@ -60,7 +57,6 @@ export default function GalleryMosaic({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile, totalPages, autoMsDesktop]);
 
-  // ----- MOBILE (carrete) -----
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [mobileIndex, setMobileIndex] = useState(0);
 
@@ -90,7 +86,6 @@ export default function GalleryMosaic({
     scrollToIndex(prev);
   };
 
-  // Detectar índice visible al scrollear (móvil)
   useEffect(() => {
     if (!isMobile) return;
 
@@ -127,7 +122,6 @@ export default function GalleryMosaic({
     };
   }, [isMobile]);
 
-  // Auto-advance Mobile
   useEffect(() => {
     if (!isMobile) return;
     if (images.length <= 1) return;
@@ -135,7 +129,6 @@ export default function GalleryMosaic({
     const id = window.setInterval(() => {
       setMobileIndex((i) => {
         const next = (i + 1) % images.length;
-        // scroll después de setear
         requestAnimationFrame(() => scrollToIndex(next));
         return next;
       });
@@ -144,7 +137,6 @@ export default function GalleryMosaic({
     return () => window.clearInterval(id);
   }, [isMobile, images.length, autoMsMobile]);
 
-  // ----- LIGHTBOX (botón +) -----
   const [open, setOpen] = useState(false);
   const [lightIdx, setLightIdx] = useState(0);
 
@@ -162,7 +154,6 @@ export default function GalleryMosaic({
       (i) => (i - 1 + Math.max(1, images.length)) % Math.max(1, images.length)
     );
 
-  // teclado en modal
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -175,13 +166,11 @@ export default function GalleryMosaic({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, images.length]);
 
-  // Helpers: en mosaico, cada tile debe abrir el índice real dentro del array
   const startIndex = page * pageSize;
   const slotToGlobalIndex = (slotIdx: number) => startIndex + slotIdx;
 
   return (
     <div className="mx-auto px-4">
-      {/* ===================== MOBILE: CARRETE ===================== */}
       <div className="md:hidden">
         <div className="relative">
           <div
@@ -199,7 +188,6 @@ export default function GalleryMosaic({
                   loading="lazy"
                 />
 
-                {/* Botón + */}
                 <button
                   type="button"
                   onClick={() => openLightbox(idx)}
@@ -211,7 +199,6 @@ export default function GalleryMosaic({
             ))}
           </div>
 
-          {/* Botón Next (móvil) */}
           <div className="mt-4 flex items-center justify-between">
             <button
               onClick={goPrevMobile}
@@ -219,10 +206,6 @@ export default function GalleryMosaic({
               type="button">
               ← Back
             </button>
-
-            <div className="text-sm text-slate-500">
-              {images.length ? mobileIndex + 1 : 0} / {images.length}
-            </div>
 
             <button
               onClick={goNextMobile}
@@ -234,7 +217,6 @@ export default function GalleryMosaic({
         </div>
       </div>
 
-      {/* ===================== DESKTOP: MOSAICO ===================== */}
       <div className="hidden md:block">
         <div className="grid grid-cols-12 gap-4">
           <ImageTile
@@ -263,7 +245,6 @@ export default function GalleryMosaic({
             onPlus={() => openLightbox(slotToGlobalIndex(4))}
           />
 
-          {/* Caja del botón Next (como tu diseño) */}
           <div className="relative flex justify-center items-center col-span-12 md:col-span-5 h-[216px] rounded-2xl border bg-white">
             <div className="flex gap-3 justify-center items-center">
               <button
@@ -289,7 +270,6 @@ export default function GalleryMosaic({
         </div>
       </div>
 
-      {/* ===================== LIGHTBOX ===================== */}
       {open && images[lightIdx] && (
         <div
           className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
@@ -305,7 +285,6 @@ export default function GalleryMosaic({
               className="w-full max-h-[80vh] object-contain bg-black"
             />
 
-            {/* Controls */}
             <button
               type="button"
               onClick={closeLightbox}

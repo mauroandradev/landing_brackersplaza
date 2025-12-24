@@ -14,7 +14,7 @@ import CardAmenities from "../molecules/CardAmenities";
 export default function Amenities() {
   return (
     <Container>
-      <div className="flex flex-col gap-10 p-10">
+      <div className="flex flex-col gap-10 ">
         <div className="flex flex-col text-center gap-10">
           <TitleSection text="Amenities" />
           <PSection text="Everything you need for a perfect stay" />

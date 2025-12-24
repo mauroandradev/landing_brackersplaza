@@ -5,14 +5,11 @@ import {
   faChevronRight,
   faStar,
   faStarHalfStroke,
-  faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 type TTestimonial = {
   id: number;
   name: string;
-  role?: string;
-  location?: string;
   rating: number;
   text: string;
   date?: string;
@@ -21,48 +18,45 @@ type TTestimonial = {
 const TESTIMONIALS: TTestimonial[] = [
   {
     id: 1,
-    name: "Sarah Miller",
-    role: "Family trip",
-    location: "Houston, TX",
+    name: "Julio De la Fuente S.",
     rating: 5,
-    text: "Perfect location! Walking distance to everything and the private beach access made our trip so easy with kids.",
-    date: "Dec 2025",
+    text: "My family and I had one apartment for more than 30 years. The Condos have a great staff and always gentle treatment. Over the years, they have improve a lot and always making maintenance to keep it at great state all the structure.",
+    date: "5 years ago",
   },
   {
     id: 2,
-    name: "James Carter",
-    role: "Weekend getaway",
-    location: "San Antonio, TX",
+    name: "Andrew Posada",
     rating: 5,
-    text: "Clean, stylish, and super comfortable. The check-in was seamless and the views were even better than the photos.",
-    date: "Nov 2025",
+    text: "Gorgeous place to be , very helpful staff & Management, very helpful and very clean place , nice beachfront and a lot of swimming pools.",
+    date: "2 years ago",
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Couple’s stay",
-    location: "McAllen, TX",
+    name: "Ruben Barrera",
     rating: 4.5,
-    text: "Great value for South Padre. Loved being steps from the beach and close to restaurants. Would definitely return.",
-    date: "Oct 2025",
+    text: "Amazing view beautiful place.",
+    date: "3 years ago",
   },
   {
     id: 4,
-    name: "Michael Nguyen",
-    role: "Business + leisure",
-    location: "Dallas, TX",
+    name: "Jdot Prez",
     rating: 5,
-    text: "Fast Wi-Fi, quiet at night, and the place felt premium. The host was responsive and everything was well organized.",
-    date: "Sep 2025",
+    text: "Relocation of a house to this address was smooth",
+    date: "4 years ago",
   },
   {
     id: 5,
-    name: "Alyssa Bennett",
-    role: "Friends trip",
-    location: "Austin, TX",
+    name: "Patricia Coffey",
     rating: 5,
-    text: "The amenities were on point and the overall vibe was resort-like. We enjoyed the pool and easy beach access.",
-    date: "Aug 2025",
+    text: "New name,PARIDISE.",
+    date: "4 years ago",
+  },
+  {
+    id: 6,
+    name: "Ignacia Vasquez",
+    rating: 5,
+    text: "Hermosos departamentos.",
+    date: "5 years ago",
   },
 ];
 
@@ -100,8 +94,25 @@ export default function TestimonialsCarouselPremium() {
   const [isHover, setIsHover] = useState(false);
   const intervalRef = useRef<number | null>(null);
 
-  const prev = () => setIndex((i) => (i - 1 + items.length) % items.length);
-  const next = () => setIndex((i) => (i + 1) % items.length);
+  const setIndexKeepScroll = (fn: (i: number) => number) => {
+    const y = window.scrollY;
+    setIndex((i) => fn(i));
+    requestAnimationFrame(() =>
+      window.scrollTo({ top: y, left: 0, behavior: "auto" })
+    );
+  };
+
+  const goTo = (i: number) => {
+    const y = window.scrollY;
+    setIndex(i);
+    requestAnimationFrame(() =>
+      window.scrollTo({ top: y, left: 0, behavior: "auto" })
+    );
+  };
+
+  const prev = () =>
+    setIndexKeepScroll((i) => (i - 1 + items.length) % items.length);
+  const next = () => setIndexKeepScroll((i) => (i + 1) % items.length);
 
   // Autoplay
   useEffect(() => {
@@ -127,6 +138,7 @@ export default function TestimonialsCarouselPremium() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index]);
 
+  // ✅ armamos 3 visibles siempre (izq, centro, der)
   const visible = (() => {
     const arr: TTestimonial[] = [];
     for (let offset = -1; offset <= 1; offset++) {
@@ -184,76 +196,68 @@ export default function TestimonialsCarouselPremium() {
         <div className="relative mt-6">
           <div className="pointer-events-none absolute -inset-6 rounded-[28px] bg-gradient-to-r from-emerald-500/10 via-transparent to-emerald-500/10 blur-2xl" />
 
-          {/* ✅ Altura estable del bloque: evita “salto” */}
+          {/* ✅ contenedor con altura y stretch */}
           <div className="relative min-h-[380px] md:min-h-[420px] lg:min-h-[440px]">
-            {/* ✅ items-stretch para que todas las cards igualen altura */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
               {visible.map((t, idx) => {
                 const isCenter = idx === 1;
 
+                // ✅ mostrar 1 en mobile, 2 en md, 3 en lg (sin hacks raros)
+                const responsiveVisibility =
+                  idx === 2 ? "md:hidden lg:block" : ""; // la 3ra se oculta solo en md
+
                 return (
-                  <article
-                    key={t.id}
-                    className={[
-                      // ✅ altura estable por card
-                      "h-full min-h-[340px] md:min-h-[360px] lg:min-h-[380px]",
-                      "rounded-2xl border border-black/5 bg-white/80 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.08)]",
-                      "p-6 md:p-7 transition-all duration-500 flex flex-col",
-                      isCenter
-                        ? "lg:scale-[1.02] lg:border-emerald-500/20 lg:shadow-[0_20px_60px_rgba(16,185,129,0.12)]"
-                        : "opacity-95 hover:opacity-100",
-                      // visibilidad responsiva (1 card mobile, 2 md, 3 lg)
-                      idx !== 1 ? "md:block hidden lg:block" : "",
-                      idx === 0 ? "lg:block hidden" : "",
-                    ].join(" ")}>
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-3">
+                  <div key={t.id} className={"h-full " + responsiveVisibility}>
+                    <article
+                      className={[
+                        "h-full min-h-[340px] md:min-h-[360px] lg:min-h-[380px]",
+                        "rounded-2xl border border-black/5 bg-white/80 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.08)]",
+                        "p-6 md:p-7 transition-all duration-500",
+                        "grid grid-rows-[auto_1fr_auto]", // ✅ header / body / footer
+                        isCenter
+                          ? "lg:scale-[1.02] lg:border-emerald-500/20 lg:shadow-[0_20px_60px_rgba(16,185,129,0.12)]"
+                          : "opacity-95 hover:opacity-100",
+                      ].join(" ")}>
+                      {/* HEADER */}
+                      <div className="flex items-start justify-between gap-4">
                         <div className="text-left">
                           <p className="font-semibold text-gray-900 leading-tight">
                             {t.name}
                           </p>
                           <p className="text-xs text-gray-500">
-                            {t.role ? t.role : "Guest"}{" "}
-                            {t.location ? `• ${t.location}` : ""}
                             {t.date ? ` • ${t.date}` : ""}
+                          </p>
+                        </div>
+
+                        <div className="flex flex-col items-end gap-1">
+                          <Stars rating={t.rating} />
+                          <p className="text-xs text-gray-400">
+                            {t.rating.toFixed(1)} / 5
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex flex-col items-end gap-1">
-                        <Stars rating={t.rating} />
-                        <p className="text-xs text-gray-400">
-                          {t.rating.toFixed(1)} / 5
+                      {/* BODY (CRECE) */}
+                      <div className="mt-5 min-h-0">
+                        <p className="text-gray-700 leading-relaxed text-sm md:text-[15px]">
+                          {t.text}
                         </p>
                       </div>
-                    </div>
 
-                    {/* Quote */}
-                    <div className="mt-5 relative flex-1">
-                      <FontAwesomeIcon
-                        icon={faQuoteLeft}
-                        className="absolute -top-2 -left-1 text-emerald-500/15 text-3xl"
-                      />
-
-                      {/* ✅ reservar altura para que no cambie el layout */}
-                      <p className="text-gray-700 leading-relaxed text-sm md:text-[15px] min-h-[96px]">
-                        {t.text}
-                      </p>
-                    </div>
-
-                    {/* Chips (siempre pegadas abajo) */}
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 ring-1 ring-emerald-500/15">
-                        Verified stay
-                      </span>
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-gray-700 ring-1 ring-black/5">
-                        Great location
-                      </span>
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-gray-700 ring-1 ring-black/5">
-                        Easy check-in
-                      </span>
-                    </div>
-                  </article>
+                      {/* FOOTER (ALINEADO ABAJO) */}
+                      <div className="pt-6 flex flex-wrap gap-2 self-end">
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 ring-1 ring-emerald-500/15">
+                          Verified stay
+                        </span>
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-gray-700 ring-1 ring-black/5">
+                          Great location
+                        </span>
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-black/5 text-gray-700 ring-1 ring-black/5">
+                          Easy check-in
+                        </span>
+                      </div>
+                    </article>
+                  </div>
                 );
               })}
             </div>
@@ -286,7 +290,7 @@ export default function TestimonialsCarouselPremium() {
               <button
                 type="button"
                 key={i}
-                onClick={() => setIndex(i)}
+                onClick={() => goTo(i)}
                 className={[
                   "h-2.5 rounded-full transition-all",
                   i === index

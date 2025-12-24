@@ -63,13 +63,12 @@ export default function GalleryMosaic({
   const scrollToIndex = (idx: number) => {
     const el = trackRef.current;
     if (!el) return;
+
     const child = el.children.item(idx) as HTMLElement | null;
     if (!child) return;
-    child.scrollIntoView({
-      behavior: "smooth",
-      inline: "start",
-      block: "nearest",
-    });
+
+    const left = child.offsetLeft; // posición dentro del track
+    el.scrollTo({ left, behavior: "smooth" }); // ✅ solo horizontal, no afecta scroll vertical
   };
 
   const goNextMobile = () => {
@@ -170,7 +169,7 @@ export default function GalleryMosaic({
   const slotToGlobalIndex = (slotIdx: number) => startIndex + slotIdx;
 
   return (
-    <div className="mx-auto px-4">
+    <div className="mx-auto">
       <div className="md:hidden">
         <div className="relative">
           <div

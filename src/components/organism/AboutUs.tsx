@@ -12,7 +12,7 @@ import {
 export default function AboutUs() {
   return (
     <Container>
-      <div className="flex flex-col lg:flex-row gap-10 items-center p-10 mt-auto">
+      <div className="flex flex-col lg:flex-row gap-10 items-center lg:p-10 mt-auto">
         <div className="w-full lg:w-1/2 flex flex-col gap-10">
           <TitleSection text="About Us" />
 

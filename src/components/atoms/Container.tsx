@@ -8,7 +8,7 @@ interface Props {
 export default function Container({ children, background }: Props) {
   return (
     <section
-      className="min-h-[70vh] flex items-center"
+      className="min-h-[60vh] flex items-center"
       style={
         background
           ? {
@@ -20,7 +20,7 @@ export default function Container({ children, background }: Props) {
             }
           : {}
       }>
-      <div className=" w-3/4  mx-auto">{children}</div>
+      <div className=" w-3/4 mx-auto py-5">{children}</div>
     </section>
   );
 }

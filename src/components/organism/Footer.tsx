@@ -1,4 +1,4 @@
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import Form from "../atoms/Form";
 import InputForm from "../atoms/InputForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Footer() {
   return (
     <div>
-      <div className="w-full flex flex-wrap bg-slate-900 min-h-[40dvh] gap-10 p-10">
+      <div
+        className="w-full flex flex-wrap bg-slate-900 min-h-[40dvh] gap-10 p-10"
+        id="contact">
         <div className="lg:w-1/3 m-auto flex flex-col gap-10 text-xl">
           <h2 className="font-bold text-5xl">Contact Us</h2>
           <p>
@@ -17,10 +19,6 @@ export default function Footer() {
             <div className="flex gap-3 items-center">
               <FontAwesomeIcon icon={faPhone} className="text-emerald-600" />
               +1 956-761-4208
-            </div>
-            <div className="flex gap-3 items-center">
-              <FontAwesomeIcon icon={faEnvelope} className="text-emerald-600" />
-              info@brackersplaza.com
             </div>
           </div>
         </div>

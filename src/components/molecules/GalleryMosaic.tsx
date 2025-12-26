@@ -190,7 +190,7 @@ export default function GalleryMosaic({
                 <button
                   type="button"
                   onClick={() => openLightbox(idx)}
-                  className="absolute top-3 left-3 h-9 w-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-slate-50 active:scale-95"
+                  className="absolute top-3 left-3 h-9 w-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-slate-200 hover:cursor-pointer active:scale-95"
                   aria-label="Open image">
                   <span className="text-xl leading-none text-slate-700">+</span>
                 </button>
@@ -201,14 +201,14 @@ export default function GalleryMosaic({
           <div className="mt-4 flex items-center justify-between">
             <button
               onClick={goPrevMobile}
-              className="h-10 text-black px-4 rounded-xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95"
+              className="h-10 text-black px-4 rounded-xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95 hover:cursor-pointer"
               type="button">
               ← Back
             </button>
 
             <button
               onClick={goNextMobile}
-              className="h-10 text-black px-4 rounded-xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95"
+              className="h-10 text-black px-4 rounded-xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95 hover:cursor-pointer"
               type="button">
               Next →
             </button>
@@ -248,14 +248,14 @@ export default function GalleryMosaic({
             <div className="flex gap-3 justify-center items-center">
               <button
                 onClick={goPrevPage}
-                className="text-black h-12 px-5 text-base font-semibold rounded-2xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95"
+                className="text-black h-12 px-5 text-base font-semibold rounded-2xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95 hover:cursor-pointer"
                 type="button">
                 ← Back
               </button>
 
               <button
                 onClick={goNextPage}
-                className="text-black h-12 px-6 text-base font-semibold rounded-2xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95"
+                className="text-black h-12 px-6 text-base font-semibold rounded-2xl border border-slate-300 bg-white shadow-sm hover:bg-emerald-300/20 active:scale-95 hover:cursor-pointer"
                 aria-label="Next images"
                 type="button">
                 Next →
@@ -287,7 +287,7 @@ export default function GalleryMosaic({
             <button
               type="button"
               onClick={closeLightbox}
-              className="absolute text-black top-3 right-3 h-10 w-10 rounded-full bg-white/95 shadow flex items-center justify-center hover:bg-white active:scale-95"
+              className="absolute text-black top-3 right-3 h-10 w-10 rounded-full bg-white/95 shadow flex items-center justify-center hover:bg-white active:scale-95 hover:cursor-pointer"
               aria-label="Close">
               ✕
             </button>
@@ -295,7 +295,7 @@ export default function GalleryMosaic({
             <button
               type="button"
               onClick={prevLight}
-              className="absolute text-black left-3 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/95 shadow flex items-center justify-center hover:bg-white active:scale-95"
+              className="absolute text-black left-3 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/95 shadow flex items-center justify-center hover:bg-white active:scale-95 hover:cursor-pointer"
               aria-label="Previous">
               ←
             </button>
@@ -303,7 +303,7 @@ export default function GalleryMosaic({
             <button
               type="button"
               onClick={nextLight}
-              className="absolute text-black right-3 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/95 shadow flex items-center justify-center hover:bg-white active:scale-95"
+              className="absolute text-black right-3 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-white/95 shadow flex items-center justify-center hover:bg-white active:scale-95  hover:cursor-pointer"
               aria-label="Next">
               →
             </button>
@@ -349,7 +349,7 @@ function ImageTile({
       <button
         type="button"
         onClick={onPlus}
-        className="absolute top-3 left-3 h-9 w-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-slate-50 active:scale-95"
+        className="absolute top-3 left-3 h-9 w-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-slate-50 active:scale-95 hover:cursor-pointer"
         aria-label="Open image">
         <span className="text-xl leading-none text-slate-700">+</span>
       </button>

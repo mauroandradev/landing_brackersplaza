@@ -8,7 +8,9 @@ import TestimonialsCarouselPremium from "../molecules/Testimonials";
 export default function Location() {
   return (
     <Container>
-      <div className="flex flex-col gap-10 text-center">
+      <div
+        className="flex flex-col gap-10 text-center scroll-mt-25"
+        id="location">
         <TitleSection text="Location" />
         <div className="mx-auto w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.15)] px-6 py-12 md:px-10 md:py-12">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">

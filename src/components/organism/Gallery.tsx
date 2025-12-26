@@ -88,7 +88,7 @@ export default function Gallery() {
   ];
   return (
     <Container>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 scroll-mt-25" id="gallery">
         <div className="flex flex-col gap-10 text-center">
           <TitleSection text="Gallery" />
           <PSection text="Explore every corner of your next destination" />

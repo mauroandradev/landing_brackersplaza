@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UlNav from "../atoms/UlNav";
 import LiNav from "../atoms/LiNav";
+import { Link } from "react-router";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -10,19 +11,22 @@ export default function Nav() {
       className={`w-full fixed border-b border-white/10 bg-gray-600/60 z-10`}>
       <div className="w-3/4 h-20 flex justify-between items-center px-4 lg:px-8 m-auto">
         <div className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap">
-          <p>Breackers Plaza</p>
-          <p className="text-teal-300">Condominiums</p>
+          <Link to="/#header">
+            <p>Breackers Plaza</p>
+            <p className="text-teal-300">Condominiums</p>
+          </Link>
         </div>
 
         <div className="hidden md:block ">
           <UlNav className="flex items-center gap-10">
-            <LiNav text="Home" link="/" />
-            <LiNav text="Us" link="/us" />
-            <LiNav text="Gallery" link="/gallery" />
-            <LiNav text="Amenities" link="/amenities" />
+            <Link to="/#header">Home</Link>
+            <Link to="/#us">Us</Link>
+            <Link to="/#gallery">Gallery</Link>
+            <Link to="/#amenities">Amenities</Link>
+            <Link to="/#contact">Contact</Link>
             <li>
               <a
-                href="/location"
+                href="/#location"
                 className="py-2 px-4 rounded bg-teal-300 font-semibold hover:opacity-90">
                 Location
               </a>
@@ -31,7 +35,7 @@ export default function Nav() {
         </div>
 
         <button
-          className="md:hidden p-2 rounded hover:bg-white/10"
+          className="md:hidden p-2 rounded hover:bg-white/10 hover:bg-teal-500"
           onClick={() => setOpen((v) => !v)}
           aria-label="Open menu"
           aria-expanded={open}>

@@ -8,7 +8,7 @@ import Location from "../organism/Location";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-10">
       <Nav />
       <Header />
       <AboutUs />

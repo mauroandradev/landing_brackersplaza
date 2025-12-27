@@ -168,14 +168,14 @@ export default function TestimonialsCarouselPremium() {
             <button
               type="button"
               onClick={prev}
-              className="h-10 w-10 rounded-full border border-black/10 bg-white/80 backdrop-blur hover:bg-white transition shadow-sm"
+              className="h-10 w-10 rounded-full hover:cursor-pointer border border-black/10 bg-white/80 backdrop-blur hover:bg-white transition shadow-sm"
               aria-label="Previous testimonial">
               <FontAwesomeIcon icon={faChevronLeft} className="text-gray-700" />
             </button>
             <button
               type="button"
               onClick={next}
-              className="h-10 w-10 rounded-full border border-black/10 bg-white/80 backdrop-blur hover:bg-white transition shadow-sm"
+              className="h-10 w-10 rounded-full hover:cursor-pointer border border-black/10 bg-white/80 backdrop-blur hover:bg-white transition shadow-sm"
               aria-label="Next testimonial">
               <FontAwesomeIcon
                 icon={faChevronRight}

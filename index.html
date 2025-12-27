@@ -2,15 +2,85 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/icon.png" />
+    <link rel="apple-touch-icon" href="/icon/icon.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Breackers Plaza</title>
+
+    <title>Breakers Plaza Condominiums | South Padre Island, TX</title>
+
+    <!-- ✅ Primary SEO -->
+    <meta
+      name="description"
+      content="Breakers Plaza Condominiums in South Padre Island, Texas. Beachfront condos with ocean views, pools, private beach access, and on-site management." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#10b981" />
+
+    <!-- ✅ Canonical (REEMPLAZAR con tu dominio real) -->
+    <!-- <link rel="canonical" href="https://www.thebreakersplaza.com/" /> -->
+
+    <meta property="og:site_name" content="Breakers Plaza Condominiums" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Breakers Plaza Condominiums | Beachfront Living in South Padre Island" />
+    <meta
+      property="og:description"
+      content="Beachfront condos in South Padre Island with ocean views, pools, and private beach access." />
+    <meta property="og:url" content="http://www.thebreakersplaza.com/" />
+    <meta
+      property="og:image"
+      content="http://www.thebreakersplaza.com/og/og-image.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ✅ Twitter -->
+    <!-- <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Breakers Plaza Condominiums | South Padre Island, TX" />
+    <meta
+      name="twitter:description"
+      content="Beachfront condos with ocean views, pools, and private beach access in South Padre Island."
+    />
+    <meta name="twitter:image" content="https://www.thebreakersplaza.com/og/og-image.jpg" /> -->
+
+    <meta name="geo.region" content="US-TX" />
+    <meta name="geo.placename" content="South Padre Island" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "Breakers Plaza Condominiums",
+        "url": "http://www.thebreakersplaza.com/",
+        "image": "https://www.thebreakersplaza.com/og/og-image.jpg",
+        "telephone": "+1-956-640-6784",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "South Padre Island",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "areaServed": "South Padre Island, TX",
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Beachfront" },
+          { "@type": "LocationFeatureSpecification", "name": "Swimming Pool" },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Private Beach Access"
+          }
+        ]
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

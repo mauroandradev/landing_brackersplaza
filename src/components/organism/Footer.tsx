@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Footer() {
   return (
-    <div>
+    <footer>
       <div
         className="w-full flex flex-wrap bg-slate-900 min-h-[40dvh] gap-10 p-10"
         id="contact">
@@ -22,7 +22,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/3 m-auto ">
+        <div className="lg:w-1/3 m-auto w-full ">
           <Form>
             <InputForm
               text="Name"
@@ -31,17 +31,30 @@ export default function Footer() {
               change={() => console.log("hello")}
             />
             <InputForm
+              text="Phone Number"
+              placeHolder="Your telephone number"
+              id="phone"
+              change={() => console.log("hello")}
+            />
+            <InputForm
               text="Email"
               placeHolder="Your Email"
               id="email"
               change={() => console.log("hello")}
             />
+            <label htmlFor="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              cols={20}
+              rows={5}
+              className="bg-black rounded resize-none"></textarea>
           </Form>
         </div>
       </div>
       <div className="bg-slate-900 w-full border-t-2 border-slate-600 text-center p-5">
         <p>© 2025 South Padre Island Condos. All rights reserved.</p>
       </div>
-    </div>
+    </footer>
   );
 }

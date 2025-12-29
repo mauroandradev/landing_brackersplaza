@@ -153,7 +153,7 @@ export default function TestimonialsCarouselPremium() {
       className="w-full mt-10"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}>
-      <div className="mx-auto w-full max-w-5xl px-4">
+      <div className="mx-auto w-full max-w-5xl lg:px-4">
         <div className="flex items-end justify-between gap-4">
           <div className="text-left">
             <p className="text-sm font-semibold tracking-wide text-emerald-600">

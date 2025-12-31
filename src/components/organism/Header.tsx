@@ -2,7 +2,6 @@ import TitleHeader from "../atoms/TitleHeader";
 import Container from "../atoms/Container";
 import fondo from "/static/image.jpg";
 import MotionCard from "../../utils/MotionCard";
-import { Link } from "react-router";
 
 export default function Header() {
   return (
@@ -14,18 +13,22 @@ export default function Header() {
           <MotionCard preset="scaleIn" delay={0.5}>
             <p className="text-2xl">Welcome to Paradise</p>
           </MotionCard>
+
           <MotionCard preset="scaleIn" delay={1}>
             <TitleHeader text="Where luxury meets the ocean" />
           </MotionCard>
+
           <MotionCard preset="scaleIn" delay={1.5}>
             <TitleHeader text="South Padre Island" colorText="text-teal-300" />
           </MotionCard>
+
           <MotionCard preset="scaleIn" delay={2}>
-            <Link to="/#contact">
+            {/* ⬇️ LINK NATIVO */}
+            <a href="#contact">
               <button className="bg-teal-300 p-3 rounded-md font-black lg:w-1/5 m-auto hover:cursor-pointer hover:bg-teal-500">
                 Contact Us
               </button>
-            </Link>
+            </a>
           </MotionCard>
         </div>
       </div>

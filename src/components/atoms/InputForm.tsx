@@ -13,6 +13,7 @@ export default function InputForm({ text, placeHolder, id }: Props) {
       <input
         className="bg-black rounded-md p-3"
         type="text"
+        required
         name={id}
         id={id}
         placeholder={placeHolder}

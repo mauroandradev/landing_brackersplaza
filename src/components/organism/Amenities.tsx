@@ -52,14 +52,14 @@ export default function Amenities() {
                   text="Pets Allowed with Restrictions"
                 />
               </MotionCard>
-              <MotionCard preset="scaleIn" delay={1.7}>
+              <MotionCard preset="scaleIn" delay={1.5}>
                 <CardAmenities
                   icon={faDumbbell}
                   title="Fitness Center"
                   text="Modern equipment to maintain your exercise routine"
                 />
               </MotionCard>
-              <MotionCard preset="scaleIn" delay={2.1}>
+              <MotionCard preset="scaleIn" delay={1.7}>
                 <CardAmenities
                   icon={faCubes}
                   title="Recreation Room"

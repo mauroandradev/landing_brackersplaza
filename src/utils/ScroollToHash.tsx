@@ -1,19 +1,22 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router";
 
 export function ScrollToHash() {
-  const { hash } = useLocation();
-
   useEffect(() => {
+    const hash = window.location.hash;
     if (!hash) return;
 
     const id = hash.replace("#", "");
     const el = document.getElementById(id);
+    if (!el) return;
 
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [hash]);
+    // espera a que el DOM esté listo
+    setTimeout(() => {
+      const yOffset = -90; // altura del nav
+      const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 0);
+  }, []);
 
   return null;
 }

@@ -25,7 +25,7 @@ export default function Gallery() {
     },
     {
       id: 4,
-      src: "/static/pool-sea.jpg",
+      src: "/static/pool-sea.webp",
       alt: "Balcony seating",
       label: "Área de descanso",
     },
@@ -44,14 +44,14 @@ export default function Gallery() {
     { id: 7, src: "/static/cocina.jpg", alt: "Cocina", label: "Cocina" },
     {
       id: 8,
-      src: "/static/climatizada.jpg",
+      src: "/static/climatizada.webp",
       alt: "Climatizada",
       label: "Climatizada",
     },
     { id: 8, src: "/static/living.jpg", alt: "Living", label: "Living" },
     { id: 9, src: "/static/pieza.jpg", alt: "Pieza", label: "Pieza" },
     { id: 10, src: "/static/pieza2.jpg", alt: "Pieza", label: "Pieza" },
-    { id: 11, src: "/static/pieza3.jpg", alt: "Pieza2", label: "Pieza2" },
+    { id: 11, src: "/static/pieza3.webp", alt: "Pieza2", label: "Pieza2" },
     { id: 12, src: "/static/banio.jpg", alt: "Baño", label: "Baño" },
     { id: 13, src: "/static/cocina-2.jpg", alt: "Cocina2", label: "Cocina2" },
     {
@@ -62,11 +62,16 @@ export default function Gallery() {
     },
     {
       id: 15,
-      src: "/static/condo-atras.jpg",
+      src: "/static/condo-atras.webp",
       alt: "Condominio",
       label: "Condominio",
     },
-    { id: 16, src: "/static/piscina-2.jpg", alt: "Pool 2", label: "Piscina 2" },
+    {
+      id: 16,
+      src: "/static/piscina-2.webp",
+      alt: "Pool 2",
+      label: "Piscina 2",
+    },
     { id: 17, src: "/static/canchas.jpg", alt: "Canchas", label: "Canchas" },
     { id: 18, src: "/static/dentro.jpg", alt: "Pool", label: "Piscina" },
     {
@@ -76,9 +81,9 @@ export default function Gallery() {
       label: "Camino a playa",
     },
     { id: 20, src: "/static/comedor.jpg", alt: "Comedor", label: "Comedor" },
-    { id: 21, src: "/static/pieza-3.jpg", alt: "Pieza3", label: "Pieza3" },
-    { id: 22, src: "/static/cocina-3.jpg", alt: "Cocina3", label: "Cocina3" },
-    { id: 23, src: "/static/cocina-4.jpg", alt: "Cocina4", label: "Cocina4" },
+    { id: 21, src: "/static/pieza-3.webp", alt: "Pieza3", label: "Pieza3" },
+    { id: 22, src: "/static/cocina-3.webp", alt: "Cocina3", label: "Cocina3" },
+    { id: 23, src: "/static/cocina-4.webp", alt: "Cocina4", label: "Cocina4" },
     {
       id: 24,
       src: "/static/edificio.jpeg",

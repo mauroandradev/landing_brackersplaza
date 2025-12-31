@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import UlNav from "../atoms/UlNav";
-import { Link, useLocation } from "react-router";
 
 function useActiveSection(ids: string[], rootMargin = "-30% 0px -60% 0px") {
   const [active, setActive] = useState(ids[0] ?? "");
@@ -30,33 +29,34 @@ function useActiveSection(ids: string[], rootMargin = "-30% 0px -60% 0px") {
   return active;
 }
 
-function scrollToHash(hash: string) {
-  if (!hash) return;
-  const id = hash.replace("#", "");
+function scrollToId(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
 
-  const yOffset = -90;
-  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  const yOffset = -90; // alto del navbar
+  const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
 
   window.scrollTo({ top: y, behavior: "smooth" });
 }
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const { hash } = useLocation();
 
   const sections = useMemo(
-    () => ["header", "us", "gallery", "amenities", "location", "contact"],
+    () => ["header", "us", "amenities", "gallery", "location", "contact"],
     []
   );
 
   const active = useActiveSection(sections);
 
-  // ✅ si cambia el hash (/#amenities), hace scroll suave
+  // ✅ si entran con URL que trae hash (#contact), scrollea
   useEffect(() => {
-    if (hash) scrollToHash(hash);
-  }, [hash]);
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = hash.replace("#", "");
+    // pequeño delay para asegurar que el DOM ya montó
+    setTimeout(() => scrollToId(id), 0);
+  }, []);
 
   const linkClass = (id: string) =>
     [
@@ -67,40 +67,70 @@ export default function Nav() {
   const ctaClass =
     "py-2 px-4 rounded bg-teal-300 text-gray-900 font-semibold hover:opacity-90 transition";
 
-  const onNavClick = () => setOpen(false);
+  const onNavClick = (id: string) => {
+    setOpen(false);
+    // actualiza URL sin recargar (opcional, pero útil)
+    window.history.replaceState(null, "", `#${id}`);
+    scrollToId(id);
+  };
 
   return (
     <nav className="w-full fixed top-0 border-b border-white/10 bg-gray-600/60 backdrop-blur z-50">
       <div className="w-3/4 h-20 flex justify-between items-center px-4 lg:px-8 m-auto">
-        <div className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap">
-          <Link to="/#header" onClick={onNavClick}>
-            <p>Breakers Plaza</p>
-            <p className="text-teal-300">Condominiums</p>
-          </Link>
-        </div>
+        {/* Logo */}
+        <button
+          type="button"
+          onClick={() => onNavClick("header")}
+          className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap text-left"
+          aria-label="Go to home">
+          <span>Breakers Plaza</span>
+          <span className="text-teal-300">Condominiums</span>
+        </button>
 
         {/* Desktop */}
         <div className="hidden md:block">
           <UlNav className="flex items-center gap-10">
-            <Link to="/#header" className={linkClass("header")}>
+            <button
+              type="button"
+              onClick={() => onNavClick("header")}
+              className={linkClass("header")}>
               Home
-            </Link>
-            <Link to="/#us" className={linkClass("us")}>
-              Us
-            </Link>
-            <Link to="/#amenities" className={linkClass("amenities")}>
-              Amenities
-            </Link>
-            <Link to="/#gallery" className={linkClass("gallery")}>
-              Gallery
-            </Link>
-            <Link to="/#location" className={linkClass("contact")}>
-              Location
-            </Link>
+            </button>
 
-            <Link to="/#contact" className={ctaClass}>
+            <button
+              type="button"
+              onClick={() => onNavClick("us")}
+              className={linkClass("us")}>
+              Us
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onNavClick("amenities")}
+              className={linkClass("amenities")}>
+              Amenities
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onNavClick("gallery")}
+              className={linkClass("gallery")}>
+              Gallery
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onNavClick("location")}
+              className={linkClass("location")}>
+              Location
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onNavClick("contact")}
+              className={ctaClass}>
               Contact
-            </Link>
+            </button>
           </UlNav>
         </div>
 
@@ -129,36 +159,42 @@ export default function Nav() {
       {/* Mobile menu */}
       <div className={open ? "md:hidden" : "hidden"}>
         <UlNav className="flex flex-col gap-3 mx-auto p-4 w-3/4 border-t border-white/10">
-          <Link
-            to="/#header"
-            onClick={onNavClick}
+          <button
+            type="button"
+            onClick={() => onNavClick("header")}
             className={linkClass("header")}>
             Home
-          </Link>
-          <Link to="/#us" onClick={onNavClick} className={linkClass("us")}>
+          </button>
+          <button
+            type="button"
+            onClick={() => onNavClick("us")}
+            className={linkClass("us")}>
             Us
-          </Link>
-          <Link
-            to="/#amenities"
-            onClick={onNavClick}
+          </button>
+          <button
+            type="button"
+            onClick={() => onNavClick("amenities")}
             className={linkClass("amenities")}>
             Amenities
-          </Link>
-          <Link
-            to="/#gallery"
-            onClick={onNavClick}
+          </button>
+          <button
+            type="button"
+            onClick={() => onNavClick("gallery")}
             className={linkClass("gallery")}>
             Gallery
-          </Link>
-          <Link
-            to="/#location"
-            onClick={onNavClick}
-            className={linkClass("contact")}>
+          </button>
+          <button
+            type="button"
+            onClick={() => onNavClick("location")}
+            className={linkClass("location")}>
             Location
-          </Link>
-          <Link to="/#contact" onClick={onNavClick} className={ctaClass}>
+          </button>
+          <button
+            type="button"
+            onClick={() => onNavClick("contact")}
+            className={ctaClass}>
             Contact
-          </Link>
+          </button>
         </UlNav>
       </div>
     </nav>

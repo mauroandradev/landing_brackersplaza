@@ -4,13 +4,10 @@ type Props = {
   children: ReactNode;
   rootMargin?: string;
   minHeight?: number; // para reservar espacio y evitar saltos
+  id: string;
 };
 
-export function LazySection({
-  children,
-  rootMargin = "300px",
-  minHeight = 200,
-}: Props) {
+export function LazySection({ children, rootMargin = "300px", id }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -33,7 +30,7 @@ export function LazySection({
   }, [rootMargin]);
 
   return (
-    <div ref={ref} style={{ minHeight }}>
+    <div ref={ref} id={id}>
       {visible ? children : null}
     </div>
   );

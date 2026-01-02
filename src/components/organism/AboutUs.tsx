@@ -13,9 +13,7 @@ import {
 export default function AboutUs() {
   return (
     <Container>
-      <div
-        className="flex flex-col lg:flex-row gap-10 items-center lg:p-10 mt-auto scroll-mt-25"
-        id="us">
+      <div className="flex flex-col lg:flex-row gap-10 items-center lg:p-10 mt-auto scroll-mt-25">
         <MotionCard
           preset="slideRight"
           amount={0.3}

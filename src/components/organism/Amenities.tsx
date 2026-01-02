@@ -15,7 +15,7 @@ export default function Amenities() {
   return (
     <section className="min-h-[60vh] flex items-center">
       <div className="mx-auto py-5">
-        <div className="flex flex-col gap-10 scroll-mt-25" id="amenities">
+        <div className="flex flex-col gap-10 scroll-mt-25">
           <MotionCard>
             <div className="flex flex-col text-center gap-10">
               <TitleSection text="Amenities" />

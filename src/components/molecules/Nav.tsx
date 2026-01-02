@@ -158,7 +158,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       <div className={open ? "md:hidden" : "hidden"}>
-        <UlNav className="flex flex-col gap-3 mx-auto p-4 w-3/4 border-t border-white/10">
+        <UlNav className="flex flex-col gap-3 mx-auto p-4 w-3/4 border-t border-white/10 items-start">
           <button
             type="button"
             onClick={() => onNavClick("header")}

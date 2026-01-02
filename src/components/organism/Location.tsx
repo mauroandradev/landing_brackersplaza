@@ -9,9 +9,7 @@ import MotionCard from "../../utils/MotionCard";
 export default function Location() {
   return (
     <Container>
-      <div
-        className="flex flex-col gap-10 text-center scroll-mt-25"
-        id="location">
+      <div className="flex flex-col gap-10 text-center scroll-mt-25">
         <MotionCard preset="fade" delay={0.3}>
           <TitleSection text="Location" />
         </MotionCard>

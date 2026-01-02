@@ -47,9 +47,7 @@ export default function Footer() {
 
   return (
     <footer>
-      <div
-        className="w-full flex flex-wrap bg-slate-900 min-h-[40dvh] gap-10 p-10"
-        id="contact">
+      <div className="w-full flex flex-wrap bg-slate-900 min-h-[40dvh] gap-10 p-10">
         <div className="lg:w-1/3 m-auto flex flex-col gap-10 text-xl">
           <h2 className="font-bold text-5xl">Contact Us</h2>
           <p>

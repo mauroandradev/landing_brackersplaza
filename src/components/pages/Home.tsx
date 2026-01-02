@@ -15,31 +15,31 @@ export default function Home() {
       <Nav />
       <Header />
 
-      <LazySection minHeight={400}>
+      <LazySection id="us">
         <Suspense fallback={null}>
           <AboutUs />
         </Suspense>
       </LazySection>
 
-      <LazySection minHeight={400}>
+      <LazySection id="amenities">
         <Suspense fallback={null}>
           <Amenities />
         </Suspense>
       </LazySection>
 
-      <LazySection minHeight={600}>
+      <LazySection id="gallery">
         <Suspense fallback={null}>
           <Gallery />
         </Suspense>
       </LazySection>
 
-      <LazySection minHeight={600}>
+      <LazySection id="location">
         <Suspense fallback={null}>
           <Location />
         </Suspense>
       </LazySection>
 
-      <LazySection minHeight={600}>
+      <LazySection id="contact">
         <Suspense fallback={null}>
           <Footer />
         </Suspense>

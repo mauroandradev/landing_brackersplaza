@@ -10,12 +10,12 @@ function useActiveSection(ids: string[], rootMargin = "-30% 0px -60% 0px") {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort(
-            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
+            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0),
           )[0];
 
         if (visible?.target?.id) setActive(visible.target.id);
       },
-      { rootMargin }
+      { rootMargin },
     );
 
     ids.forEach((id) => {
@@ -44,7 +44,7 @@ export default function Nav() {
 
   const sections = useMemo(
     () => ["header", "us", "amenities", "gallery", "location", "contact"],
-    []
+    [],
   );
 
   const active = useActiveSection(sections);
@@ -128,8 +128,11 @@ export default function Nav() {
             <button
               type="button"
               onClick={() => onNavClick("contact")}
-              className={ctaClass}>
+              className={linkClass("contact")}>
               Contact
+            </button>
+            <button type="button" className={ctaClass}>
+              <a href="https://portal.thebreakersplaza.com">Portal</a>
             </button>
           </UlNav>
         </div>
@@ -192,8 +195,11 @@ export default function Nav() {
           <button
             type="button"
             onClick={() => onNavClick("contact")}
-            className={ctaClass}>
+            className={linkClass("contact")}>
             Contact
+          </button>
+          <button type="button" className={ctaClass}>
+            <a href="https://portal.thebreakersplaza.com">Portal</a>
           </button>
         </UlNav>
       </div>

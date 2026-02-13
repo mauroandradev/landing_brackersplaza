@@ -80,7 +80,7 @@ export default function Gallery() {
       alt: "Caminoaplaya",
       label: "Camino a playa",
     },
-    { id: 20, src: "/static/comedor.jpg", alt: "Comedor", label: "Comedor" },
+    { id: 20, src: "/static/comedor.png", alt: "Comedor", label: "Comedor" },
     { id: 21, src: "/static/pieza-3.webp", alt: "Pieza3", label: "Pieza3" },
     { id: 22, src: "/static/cocina-3.webp", alt: "Cocina3", label: "Cocina3" },
     { id: 23, src: "/static/cocina-4.webp", alt: "Cocina4", label: "Cocina4" },

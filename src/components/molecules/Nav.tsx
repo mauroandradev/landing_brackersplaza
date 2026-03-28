@@ -81,7 +81,7 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => onNavClick("header")}
-          className="flex gap-2 text-lg sm:text-xl font-bold flex-wrap text-left"
+          className="flex gap-2 text-lg font-semi-bold sm:text-2xl flex-wrap text-left"
           aria-label="Go to home">
           <span>Breakers Plaza</span>
           <span className="text-teal-300">Condominiums</span>

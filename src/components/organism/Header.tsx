@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <Container background={fondo}>
       <div
-        className="flex text-center justify-center items-center xl:h-[80vh] sm:h-auto md:h-auto scroll-mt-25"
+        className="flex text-center justify-center items-center xl:h-[100vh] sm:h-auto md:h-auto scroll-mt-25"
         id="header">
         <div className="flex flex-col gap-5 mt-30 lg:mt-0">
           <MotionCard preset="scaleIn" delay={0.5}>

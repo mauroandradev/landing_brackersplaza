@@ -31,7 +31,7 @@ export default function Footer() {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
       alert("✅ Message sent successfully");
@@ -107,7 +107,7 @@ export default function Footer() {
       </div>
 
       <div className="bg-slate-900 w-full border-t-2 border-slate-600 text-center p-5">
-        <p>© 2025 South Padre Island Condos. All rights reserved.</p>
+        <p>{`© 1982 - ${new Date().getFullYear()} South Padre Island Condos. All rights reserved.`}</p>
       </div>
     </footer>
   );

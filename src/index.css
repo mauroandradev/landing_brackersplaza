@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-:root{
-    font-family: "Open Sans", sans-serif;
-    color: white;
+:root {
+  font-family: "Quicksand", sans-serif;
+  color: white;
 }
 
 html {

@@ -38,28 +38,28 @@ export default function Amenities() {
                   text="Large heated swimming pool with relaxation area and pool overlooking the sea."
                 />
               </MotionCard>
-              <MotionCard preset="scaleIn" delay={0.9}>
+              <MotionCard preset="scaleIn" delay={0.7}>
                 <CardAmenities
                   icon={faCarRear}
                   title="Parking lot"
                   text="Secure and covered parking space for residents"
                 />
               </MotionCard>
-              <MotionCard preset="scaleIn" delay={1.3}>
+              <MotionCard preset="scaleIn" delay={0.9}>
                 <CardAmenities
                   icon={faPaw}
                   title="Pet Policy"
                   text="Pets Allowed with Restrictions"
                 />
               </MotionCard>
-              <MotionCard preset="scaleIn" delay={1.5}>
+              <MotionCard preset="scaleIn" delay={1.1}>
                 <CardAmenities
                   icon={faDumbbell}
                   title="Fitness Center"
                   text="Modern equipment to maintain your exercise routine"
                 />
               </MotionCard>
-              <MotionCard preset="scaleIn" delay={1.7}>
+              <MotionCard preset="scaleIn" delay={1.2}>
                 <CardAmenities
                   icon={faCubes}
                   title="Recreation Room"

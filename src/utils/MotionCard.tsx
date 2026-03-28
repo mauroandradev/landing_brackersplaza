@@ -70,7 +70,7 @@ export default function MotionCard({
   children,
   className = "",
   preset = "fadeUp",
-  delay = 0.3,
+  delay = 0.2,
   duration = 0.8,
   once = true,
   amount = 0.1,
@@ -93,8 +93,8 @@ export default function MotionCard({
     as === "article"
       ? motion.article
       : as === "section"
-      ? motion.section
-      : motion.div;
+        ? motion.section
+        : motion.div;
 
   return (
     <Comp

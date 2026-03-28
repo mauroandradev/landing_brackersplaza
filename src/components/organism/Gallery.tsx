@@ -19,7 +19,7 @@ export default function Gallery() {
     },
     {
       id: 3,
-      src: "/static/jacuzzi.jpeg",
+      src: "/static/jacuzzi.jpg",
       alt: "Balcony",
       label: "Vista desde el balcón",
     },
@@ -35,31 +35,18 @@ export default function Gallery() {
       alt: "Building",
       label: "Breakers Plaza",
     },
-    {
-      id: 6,
-      src: "/static/vista-playa.jpg",
-      alt: "Vista Playa",
-      label: "Vista Playa",
-    },
+    { id: 20, src: "/static/comedor.jpg", alt: "Comedor", label: "Comedor" },
     { id: 7, src: "/static/cocina.jpg", alt: "Cocina", label: "Cocina" },
-    {
-      id: 8,
-      src: "/static/climatizada.webp",
-      alt: "Climatizada",
-      label: "Climatizada",
-    },
+    { id: 23, src: "/static/cocina-4.webp", alt: "Cocina4", label: "Cocina4" },
     { id: 8, src: "/static/living.jpg", alt: "Living", label: "Living" },
     { id: 9, src: "/static/pieza.jpg", alt: "Pieza", label: "Pieza" },
     { id: 10, src: "/static/pieza2.jpg", alt: "Pieza", label: "Pieza" },
-    { id: 11, src: "/static/pieza3.webp", alt: "Pieza2", label: "Pieza2" },
+    { id: 11, src: "/static/dentro.jpg", alt: "Pool", label: "Piscina" },
     { id: 12, src: "/static/banio.jpg", alt: "Baño", label: "Baño" },
-    { id: 13, src: "/static/cocina-2.jpg", alt: "Cocina2", label: "Cocina2" },
-    {
-      id: 14,
-      src: "/static/camino-a-playa.jpg",
-      alt: "Caminoaplaya",
-      label: "Camino a playa",
-    },
+    { id: 13, src: "/static/cocina2.webp", alt: "Cocina2", label: "Cocina2" },
+
+    { id: 22, src: "/static/cocina-3.webp", alt: "Cocina3", label: "Cocina3" },
+
     {
       id: 15,
       src: "/static/condo-atras.webp",
@@ -73,17 +60,34 @@ export default function Gallery() {
       label: "Piscina 2",
     },
     { id: 17, src: "/static/canchas.jpg", alt: "Canchas", label: "Canchas" },
-    { id: 18, src: "/static/dentro.jpg", alt: "Pool", label: "Piscina" },
+
+    { id: 18, src: "/static/pieza3.jpg", alt: "Pieza2", label: "Pieza2" },
     {
       id: 19,
       src: "/static/camino-playa.jpg",
       alt: "Caminoaplaya",
       label: "Camino a playa",
     },
-    { id: 20, src: "/static/comedor.png", alt: "Comedor", label: "Comedor" },
-    { id: 21, src: "/static/pieza-3.webp", alt: "Pieza3", label: "Pieza3" },
-    { id: 22, src: "/static/cocina-3.webp", alt: "Cocina3", label: "Cocina3" },
-    { id: 23, src: "/static/cocina-4.webp", alt: "Cocina4", label: "Cocina4" },
+    {
+      id: 6,
+      src: "/static/vista-frente.jpg",
+      alt: "Vista Playa",
+      label: "Vista Playa",
+    },
+    { id: 21, src: "/static/pieza-3.jpg", alt: "Gym", label: "Gym" },
+    {
+      id: 14,
+      src: "/static/camino-a-playa.jpg",
+      alt: "Caminoaplaya",
+      label: "Camino a playa",
+    },
+
+    {
+      id: 8,
+      src: "/static/climatizada.webp",
+      alt: "Climatizada",
+      label: "Climatizada",
+    },
     {
       id: 24,
       src: "/static/edificio.jpeg",

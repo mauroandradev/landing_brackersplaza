@@ -10,19 +10,19 @@ export default function Header() {
         className="flex text-center justify-center items-center xl:h-[100vh] sm:h-auto md:h-auto scroll-mt-25"
         id="header">
         <div className="flex flex-col gap-5 mt-30 lg:mt-0">
-          <MotionCard preset="scaleIn" delay={0.5}>
+          <MotionCard preset="scaleIn" delay={0.0}>
             <p className="text-2xl">Welcome to Paradise</p>
           </MotionCard>
 
-          <MotionCard preset="scaleIn" delay={1}>
+          <MotionCard preset="scaleIn" delay={0.5}>
             <TitleHeader text="Where luxury meets the ocean" />
           </MotionCard>
 
-          <MotionCard preset="scaleIn" delay={1.5}>
+          <MotionCard preset="scaleIn" delay={1}>
             <TitleHeader text="South Padre Island" colorText="text-teal-300" />
           </MotionCard>
 
-          <MotionCard preset="scaleIn" delay={2}>
+          <MotionCard preset="scaleIn" delay={1.5}>
             {/* ⬇️ LINK NATIVO */}
             <a href="#contact">
               <button className="bg-teal-300 p-3 rounded-md font-black lg:w-1/5 m-auto hover:cursor-pointer hover:bg-teal-500">

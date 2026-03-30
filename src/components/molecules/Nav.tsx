@@ -81,14 +81,14 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => onNavClick("header")}
-          className="flex gap-2 text-lg font-semi-bold sm:text-2xl flex-wrap text-left"
+          className="flex md:gap-2 text-lg font-semi-bold sm:text-2xl flex-wrap text-left"
           aria-label="Go to home">
           <span>Breakers Plaza</span>
           <span className="text-teal-300">Condominiums</span>
         </button>
 
         {/* Desktop */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <UlNav className="flex items-center gap-10">
             <button
               type="button"
@@ -139,7 +139,7 @@ export default function Nav() {
 
         {/* Mobile button */}
         <button
-          className="md:hidden p-2 rounded hover:bg-white/10 transition"
+          className="lg:hidden p-2 rounded hover:bg-white/10 transition"
           onClick={() => setOpen((v) => !v)}
           aria-label="Open menu"
           aria-expanded={open}>
@@ -160,7 +160,7 @@ export default function Nav() {
       </div>
 
       {/* Mobile menu */}
-      <div className={open ? "md:hidden" : "hidden"}>
+      <div className={open ? "lg:hidden" : "hidden"}>
         <UlNav className="flex flex-col gap-3 mx-auto p-4 w-3/4 border-t border-white/10 items-start">
           <button
             type="button"

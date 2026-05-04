@@ -1,51 +1,9 @@
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
-import InputForm from "../atoms/InputForm";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Footer() {
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
-  const captchaKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-  const [sending, setSending] = useState(false);
-
-  // 1️⃣ Submit del form → ejecuta captcha invisible
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!formRef.current || sending) return;
-
-    recaptchaRef.current?.execute();
-  };
-
-  // 2️⃣ Google valida → acá recién enviamos el mail
-  const handleCaptchaSuccess = async (token: string | null) => {
-    if (!token || !formRef.current) return;
-
-    try {
-      setSending(true);
-
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      );
-
-      alert("✅ Message sent successfully");
-      formRef.current.reset();
-    } catch (err) {
-      console.error(err);
-      alert("❌ An error occurred while sending the message");
-    } finally {
-      setSending(false);
-      recaptchaRef.current?.reset();
-    }
-  };
-
-  return (
+    return (
     <footer>
       <div className="w-full flex flex-wrap bg-slate-900 min-h-[40dvh] gap-10 p-10">
         <div className="lg:w-1/3 m-auto flex flex-col gap-10 text-xl">

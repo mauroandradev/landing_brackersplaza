@@ -8,15 +8,11 @@ type GalleryImage = {
 type Props = {
   images: GalleryImage[];
   pageSize?: number;
-  autoMsDesktop?: number;
-  autoMsMobile?: number;
 };
 
 export default function GalleryMosaic({
   images,
   pageSize = 5,
-  autoMsDesktop = 9000,
-  autoMsMobile = 9000,
 }: Props) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -44,18 +40,6 @@ export default function GalleryMosaic({
 
   const goNextPage = () => setPage((p) => (p + 1) % totalPages);
   const goPrevPage = () => setPage((p) => (p - 1 + totalPages) % totalPages);
-
-  useEffect(() => {
-    if (isMobile) return;
-    if (totalPages <= 1) return;
-
-    const id = window.setInterval(() => {
-      goNextPage();
-    }, autoMsDesktop);
-
-    return () => window.clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile, totalPages, autoMsDesktop]);
 
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [mobileIndex, setMobileIndex] = useState(0);
@@ -120,21 +104,6 @@ export default function GalleryMosaic({
       window.cancelAnimationFrame(raf);
     };
   }, [isMobile]);
-
-  useEffect(() => {
-    if (!isMobile) return;
-    if (images.length <= 1) return;
-
-    const id = window.setInterval(() => {
-      setMobileIndex((i) => {
-        const next = (i + 1) % images.length;
-        requestAnimationFrame(() => scrollToIndex(next));
-        return next;
-      });
-    }, autoMsMobile);
-
-    return () => window.clearInterval(id);
-  }, [isMobile, images.length, autoMsMobile]);
 
   const [open, setOpen] = useState(false);
   const [lightIdx, setLightIdx] = useState(0);

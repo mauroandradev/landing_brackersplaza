@@ -1,6 +1,6 @@
 import TitleHeader from "../atoms/TitleHeader";
 import Container from "../atoms/Container";
-import fondo from "/static/image.jpg";
+import fondo from "/static/image.png";
 import MotionCard from "../../utils/MotionCard";
 
 export default function Header() {
